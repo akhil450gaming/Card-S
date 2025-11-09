@@ -1,0 +1,157 @@
+body {  
+  margin: 0;  
+  height: 100vh;  
+  background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #fbc2eb, #fda085, #ff6f91, #ffb6b9);  
+  background-size: 400% 400%;  
+  animation: gradientShift 20s ease infinite;  
+  display: flex;  
+  justify-content: center;  
+  align-items: center;  
+  font-family: "Poppins", sans-serif;  
+  overflow: hidden;  
+}  
+
+@keyframes gradientShift {  
+  0% { background-position: 0% 50%; }  
+  50% { background-position: 100% 50%; }  
+  100% { background-position: 0% 50%; }  
+}  
+
+.card-container {  
+  position: relative;  
+  width: 350px;  
+  text-align: center;  
+}  
+
+.closed-card, .open-card {  
+  background: linear-gradient(135deg, #ffe0f0, #ffd1c1, #fbc2eb, #fda085);  
+  background-size: 200% 200%;  
+  animation: cardGradient 12s ease infinite;  
+  border-radius: 25px;  
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);  
+  padding: 40px;  
+  cursor: pointer;  
+  transition: all 0.8s ease;  
+}  
+
+@keyframes cardGradient {  
+  0% { background-position: 0% 50%; }  
+  50% { background-position: 100% 50%; }  
+  100% { background-position: 0% 50%; }  
+}  
+
+.closed-card:hover {  
+  transform: scale(1.05);  
+}  
+
+.closed-card h2 {  
+  color: #ff69b4;  
+  font-size: 1.8rem;  
+}  
+
+.closed-card p {  
+  color: #555;  
+  margin-top: 10px;  
+}  
+
+.hidden {  
+  display: none;  
+}  
+
+.open-card {  
+  position: relative;  
+  overflow: hidden;  
+  animation: fadeIn 1.2s ease-in-out;  
+}  
+
+.title {  
+  margin-bottom: 15px;  
+}  
+
+.happy {  
+  color: #ff69b4;  
+  font-size: 2rem;  
+  margin: 0;  
+  animation: bounceIn 1.2s ease-in-out;  
+}  
+
+.name {  
+  color: #ff1493;  
+  font-size: 2.2rem;  
+  margin: 0;  
+  font-weight: 700;  
+  animation: fadeInUp 1.4s ease-in-out;  
+}  
+
+.message {  
+  color: #444;  
+  font-size: 1rem;  
+  margin-bottom: 20px;  
+  line-height: 1.5;  
+}  
+
+.from {  
+  font-style: italic;  
+  color: #ff85c1;  
+}  
+
+.balloons {  
+  position: absolute;  
+  top: 100%;  
+  left: 50%;  
+  transform: translateX(-50%);  
+  width: 100%;  
+  height: 100%;  
+  pointer-events: none;  
+}  
+
+.balloon {  
+  position: absolute;  
+  bottom: 0;  
+  width: 40px;  
+  height: 50px;  
+  border-radius: 50% 50% 45% 45%;  
+  background: hsl(340, 90%, 70%);  
+  box-shadow: inset -4px -6px rgba(0, 0, 0, 0.1);  
+  animation: fly 6s ease-in infinite;  
+  transform-origin: bottom center;  
+}  
+
+.balloon::before {  
+  content: "";  
+  position: absolute;  
+  bottom: -8px;  
+  left: 50%;  
+  transform: translateX(-50%);  
+  width: 6px;  
+  height: 8px;  
+  background: inherit;  
+  border-radius: 20%;  
+}  
+
+.balloon::after {  
+  content: "";  
+  position: absolute;  
+  bottom: -30px;  
+  left: 50%;  
+  width: 2px;  
+  height: 30px;  
+  background: #555;  
+  transform: translateX(-50%);  
+  opacity: 0.7;  
+}  
+
+@keyframes fly {  
+  0% { transform: translateY(0) rotate(0deg); opacity: 1; }  
+  50% { transform: translateY(-300px) rotate(3deg); opacity: 0.9; }  
+  100% { transform: translateY(-650px) rotate(-3deg); opacity: 0; }  
+}  
+
+#confetti {  
+  position: absolute;  
+  top: 0;  
+  left: 0;  
+  width: 100%;  
+  height: 100%;  
+  pointer-events: none;  
+}
